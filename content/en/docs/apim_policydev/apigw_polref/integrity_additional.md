@@ -214,14 +214,9 @@ The validation works as follows:
 
 
 * When supporting detached signatures is enabled and at runtime, a token with a detached signature is processed and the filter can locate the detached payload at the location specified, the filter passes.
-
 * When supporting detached signatures is enabled and at runtime, a token with a detached signature is processed and the filter cannot locate the detached payload at the location specified, the filter fails.
-
 * When supporting detached signatures is disabled and at runtime, a token with a detached signature is processed, the filter fails.
-
 * When supporting detached signatures is either enabled or disabled and at runtime, a compact token is processed, the filter passes.
-
-
 
 **Critical Headers**: You can add a list of acceptable “crit” headers (list of JWT claims), which will be validated against the list of claims present in the “crit” header of the JWT token being processed. The validation works as follows:
 
