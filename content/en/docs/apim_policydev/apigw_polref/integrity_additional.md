@@ -211,10 +211,8 @@ You can verify signed tokens using a selector expression containing the value of
 
 The detached signature is *disabled* by default in JWT Verify filter. It can be enabled by selecting the tickbox **`Support detached payload`**. In that case, the location of the `payload` must be specified which is defaulted to `${content.body}`.
 The validation works as follows:
-
-
-* When supporting detached signatures is enabled and at runtime, a token with a detached signature is processed and the filter can locate the detached payload at the location specified, the filter passes.
-* When supporting detached signatures is enabled and at runtime, a token with a detached signature is processed and the filter cannot locate the detached payload at the location specified, the filter fails.
+* When supporting detached signatures is enabled and at runtime, a token with a detached signature is processed and the filter can locate the detached payload at the location specified, the filter passes.
+* When supporting detached signatures is enabled and at runtime, a token with a detached signature is processed and the filter cannot locate the detached payload at the location specified, the filter fails.
 * When supporting detached signatures is disabled and at runtime, a token with a detached signature is processed, the filter fails.
 * When supporting detached signatures is either enabled or disabled and at runtime, a compact token is processed, the filter passes.
 
