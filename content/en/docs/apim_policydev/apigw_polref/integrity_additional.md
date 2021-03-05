@@ -212,10 +212,13 @@ You can verify signed tokens using a selector expression containing the value of
 The detached signature is *disabled* by default in JWT Verify filter. It can be enabled by selecting the tickbox **`Support detached payload`**. In that case, the location of the `payload` must be specified which is defaulted to `${content.body}`.
 The validation works as follows:
 
-* When supporting detached signatures is enabled and at runtime, a token with a detached signature is processed and the filter can locate the detached payload at the location specified, the filter passes.
-* When supporting detached signatures is enabled and at runtime, a token with a detached signature is processed and the filter cannot locate the detached payload at the location specified, the filter fails.
-* When supporting detached signatures is disabled and at runtime, a token with a detached signature is processed, the filter fails.
-* When supporting detached signatures is either enabled or disabled and at runtime, a compact token is processed, the filter passes.
+* When detached signatures are enabled and a JWS token with a detached signature is processed at runtime, the filter will pass if the correct payload can be found in the location specified.
+* When detached signatures are enabled and a JWS token with a detached signature is processed at runtime, the filter will fail if the correct payload cannot be found in the location specified.
+* When detached signatures are disabled and a JWS token with a detached signature is processed at runtime, the filter will fail.
+* When detached signatures are either enabled or disabled and a compact JWS token is processed at runtime, the filter will pass if the token is correct.
+
+{{< alert title="Note" color="primary" >}}When using detached signatures, detached payloads must not be base64 encoded. JWS Tokens should contain a `"b64: false"` header claim to enforce this behaviour. Please refer to the [JWS Unencoded Payload Option RFC 7797](https://tools.ietf.org/html/rfc7797) for more information.{{< /alert >}}
+
 
 **Critical Headers**: You can add a list of acceptable “crit” headers (list of JWT claims), which will be validated against the list of claims present in the “crit” header of the JWT token being processed. The validation works as follows:
 
