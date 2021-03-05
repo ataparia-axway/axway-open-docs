@@ -219,7 +219,6 @@ The validation works as follows:
 
 {{< alert title="Note" color="primary" >}}When using detached signatures, detached payloads must not be base64 encoded. JWS Tokens should contain a `"b64: false"` header claim to enforce this behaviour. Please refer to the [JWS Unencoded Payload Option RFC 7797](https://tools.ietf.org/html/rfc7797) for more information.{{< /alert >}}
 
-
 **Critical Headers**: You can add a list of acceptable “crit” headers (list of JWT claims), which will be validated against the list of claims present in the “crit” header of the JWT token being processed. The validation works as follows:
 
 * Successful, if all claims present in the “crit” header list of the JWT token match the lists you have configured.
