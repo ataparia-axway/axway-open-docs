@@ -207,7 +207,7 @@ You can configure the following optional setting in the **JWK from external sour
 **JSON web key**:
 You can verify signed tokens using a selector expression containing the value of a `JSON Web Key (JWK)`. The return type of the selector expression must be of type String.
 
-**Detached Signature**: A JSON Web Signature (JWS) can be in detached [JWS RFC 7515](https://tools.ietf.org/html/rfc7515#appendix-F). In that case, the payload is omitted from the JWS and is sent separately. The detached JWS will be in the format `<header>..<signature>`.  The `payload` missing from the JWS must be located on the Message via a Selector expression. This will typically be `${content.body}` but is configurable in the filter.
+**Detached Signature**: A JSON Web Signature (JWS) can be in a detached format as per [Appendix F of JWS RFC 7515](https://tools.ietf.org/html/rfc7515#appendix-F). In that case, the payload is omitted from the JWS and is sent separately. The detached JWS will be in the format `<header>..<signature>`.  The `payload` missing from the JWS must be located on the Message via a Selector expression. This will typically be `${content.body}` but is configurable in the filter.
 
 The detached signature is *disabled* by default in JWT Verify filter. It can be enabled by selecting the tickbox **`Support detached payload`**. In that case, the location of the `payload` must be specified which is defaulted to `${content.body}`.
 The validation works as follows:
