@@ -209,7 +209,7 @@ You can verify signed tokens using a selector expression containing the value of
 
 **Detached Signature**: The format of a detached JWS is `<header>..<signature>`. When a JWS is in a detached format, its payload is omitted from the JWS and it is sent separately. The payload missing from the JWS must be added to the Message via a selector expression, which is typically a `${content.body}`, but it is configurable in the filter.
 
-The detached signature is disabled by default in the JWT Verify filter. To enable it, select **Support detached payload**, and specify the location of the payload in the `${content.body}`.
+The detached signature is disabled by default in the JWT Verify filter. To enable it, select **Support detached payload** and specify the location of the payload, which defaults to `${content.body}`.
 
 The validation of the detached signature works as follows:
 
